@@ -41,7 +41,7 @@ app.use((req, res, next) => {
   next();
 });
 //getImage
-app.use("app/uploads", require("./routes/imageRoutes"));
+app.use("/uploads", require("./routes/imageRoutes"));
 //uploadImage
 app.use(
   "/api/images",
