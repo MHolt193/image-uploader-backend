@@ -49,6 +49,9 @@ app.use(
   require("./routes/imageRoutes")
 );
 //
+app.use((error, req, res, next) => {
+  console.log(error)
+})
 
 
 app.listen(port, () => {
