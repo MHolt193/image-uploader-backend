@@ -14,7 +14,7 @@ const uploadImage = (req, res, next) => {
       `upload request recieved /api/images file: ${req.file.originalname}`
     );
     res.json({
-      file_url: `http://192.168.0.57:5000/uploads/${req.file.filename}`,
+      file_url: `https://mhimageuploader.herokuapp.com/uploads/${req.file.filename}`,
     });
   } catch (err) {
     next(err);
