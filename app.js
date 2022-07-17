@@ -5,25 +5,23 @@ const multer = require("multer");
 require("dotenv/config");
 const port = process.env.PORT || 5000;
 
-
 const app = express();
 
 //multer configuration
 const imageStorage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        const error = file.mimetype.split('/')[0]==='image'
+  destination: (req, file, cb) => {
+    const error =
+      file.mimetype.split("/")[0] === "image"
         ? null
-        : new Error('Invalid File type');
-        cb(error, 'uploads/')
-    },
-    filename: (req, file, cb)=>{
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-        cb(null, `${uniqueSuffix}${file.originalname}`)
-    }
-})
-const upload = multer({storage: imageStorage})
-
-
+        : new Error("Invalid File type");
+    cb(error, "uploads/");
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, `${uniqueSuffix}${file.originalname}`);
+  },
+});
+const upload = multer({ storage: imageStorage });
 
 //body parser
 app.use(bodyParser.json());
@@ -50,9 +48,8 @@ app.use(
 );
 //
 app.use((error, req, res, next) => {
-  console.log(error)
-})
-
+  console.log(error);
+});
 
 app.listen(port, () => {
   console.log(`Server Listening on ${port}`);
