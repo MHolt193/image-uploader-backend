@@ -3,7 +3,7 @@
 //NO AUTH
 const getImage = (req, res) => {
   console.log(req.params);
-  res.sendFile(`/uploads/${req.params.fileName}`, { root: "./" });
+  res.sendFile(`/uploads/${req.params.fileName}`, { root: "./app" });
 };
 
 //Method: POST
