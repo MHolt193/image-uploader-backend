@@ -14,7 +14,7 @@ const imageStorage = multer.diskStorage({
         const error = file.mimetype.split('/')[0]==='image'
         ? null
         : new Error('Invalid File type');
-        cb(error, './uploads/')
+        cb(error, './app/uploads/')
     },
     filename: (req, file, cb)=>{
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
